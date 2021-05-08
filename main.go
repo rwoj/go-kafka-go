@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/rwoj/go-kafka-go/confl/confl-consumer"
-	"github.com/rwoj/go-kafka-go/confl/confl-producer"
-	"github.com/rwoj/go-kafka-go/seg/seg-consumer"
-	"github.com/rwoj/go-kafka-go/seg/seg-producer"
+	"github.com/rwoj/go-kafka-go/confl/consumer"
+	"github.com/rwoj/go-kafka-go/confl/producer"
+	// "github.com/rwoj/go-kafka-go/seg/consumer"
+	// "github.com/rwoj/go-kafka-go/seg/producer"
 )
 
 func main() {
@@ -18,9 +18,9 @@ func main() {
 
 	if *libraryFlagValue == "s" {
 		if *optionFlagValue == "consumer" {
-			confl - consumer.StartConsumer()
-		} else if *stringFlagValue == "producer" {
-			confl - producer.StartProducer()
+			consumer.StartConsumer()
+		} else if *optionFlagValue == "producer" {
+			producer.StartProducer()
 		} else {
 			fmt.Print("Usage: \n -l    and either \"s\" or \"producer\"\n -o     and either \"consumer\" or \"producer\"\n")
 		}
