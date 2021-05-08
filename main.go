@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/rwoj/go-kafka-go/confl/consumer"
-	"github.com/rwoj/go-kafka-go/confl/producer"
+	"github.com/rwoj/go-kafka-go/confl/cconsumer"
+	"github.com/rwoj/go-kafka-go/confl/cproducer"
 	// "github.com/rwoj/go-kafka-go/seg/consumer"
 	// "github.com/rwoj/go-kafka-go/seg/producer"
 )
@@ -16,11 +16,11 @@ func main() {
 	optionFlagValue := flag.String("o", "", "    Use this flag with either \"consumer\" or \"producer\"")
 	flag.Parse()
 
-	if *libraryFlagValue == "s" {
+	if *libraryFlagValue == "c" {
 		if *optionFlagValue == "consumer" {
-			consumer.StartConsumer()
+			cconsumer.StartConsumer()
 		} else if *optionFlagValue == "producer" {
-			producer.StartProducer()
+			cproducer.StartProducer()
 		} else {
 			fmt.Print("Usage: \n -l    and either \"s\" or \"producer\"\n -o     and either \"consumer\" or \"producer\"\n")
 		}
